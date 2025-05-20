@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioFab Explorer | 电纺与器官打印的未来</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>BioFab Explorer</h1>
+            <p class="tagline">探索电纺技术与器官打印的未来</p>
+            <a href="#electrospinning" class="btn">了解电纺技术</a>
+            <a href="#bioprinting" class="btn">探索器官打印</a>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#electrospinning">电纺技术</a></li>
+            <li><a href="#bioprinting">器官打印</a></li>
+            <li><a href="#research">我的研究</a></li>
+            <li><a href="#interactive">互动学习</a></li>
+            <li><a href="#resources">资源中心</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="home" class="hero">
+            <h2>欢迎来到再生医学的未来</h2>
+            <p>探索电纺纳米材料与3D生物打印如何革新组织工程和器官移植领域</p>
+            <a href="#electrospinning" class="btn">开始探索</a>
+        </section>
+        
+        <section id="electrospinning">
+            <h2>电纺技术</h2>
+            <p>电纺是一种利用电场力从聚合物溶液中制备微纳米纤维的技术。这些纤维具有高比表面积和可调控的孔隙结构，在组织工程、药物递送等领域有广泛应用。</p>
+            
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/rs9w5bgtJC8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <h3>电纺过程</h3>
+            <p>电纺过程主要包括三个关键组件：高压电源、注射泵和收集装置。当施加高电压时，聚合物溶液从针头喷出形成泰勒锥，最终拉伸成超细纤维沉积在收集器上。</p>
+            
+            <h3>应用领域</h3>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>组织工程支架</h3>
+                    <p>电纺纤维模拟细胞外基质结构，为细胞生长提供理想的三维环境，可用于血管、骨骼、神经等多种组织再生。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💊</div>
+                    <h3>药物递送系统</h3>
+                    <p>药物可以封装在电纺纤维中，实现可控释放，提高药物利用率，减少副作用。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🩺</div>
+                    <h3>伤口敷料</h3>
+                    <p>电纺敷料具有高透气性和吸液性，能促进伤口愈合，防止感染。</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="bioprinting">
+            <h2>器官打印技术</h2>
+            <p>3D生物打印是一种将活细胞与生物材料层层堆积，构建三维组织结构的技术，有望解决器官移植短缺问题。</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a9e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="生物打印机">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="生物墨水">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581094794320-8a0a7d5bc3d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="打印心脏">
+                </div>
+            </div>
+            
+            <h3>生物打印关键组件</h3>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>生物墨水</h3>
+                    <p>由活细胞和生物材料组成的"墨水"，需要具备良好的打印性能和生物相容性，能支持细胞存活和功能表达。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧫</div>
+                    <h3>细胞来源</h3>
+                    <p>包括干细胞、原代细胞和细胞系等。干细胞因其多能性特别受到关注，但分化控制和安全性仍是挑战。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>血管化</h3>
+                    <p>构建血管网络是打印大型器官的最大挑战之一，缺乏血液供应会导致内部细胞死亡。</p>
+                </div>
+            </div>
+            
+            <h3>当前挑战</h3>
+            <ul>
+                <li>如何确保打印组织的长期存活和功能</li>
+                <li>如何实现复杂器官的精细结构</li>
+                <li>如何避免免疫排斥反应</li>
+                <li>如何降低技术成本实现临床应用</li>
+            </ul>
+        </section>
+        
+        <section id="research">
+            <h2>我的电纺研究</h2>
+            <p>在我的实验中，我探索了电纺纳米材料在组织工程中的应用潜力，特别是对人工心脏瓣膜的支架材料研究。</p>
+            
+            <h3>实验方法</h3>
+            <p>使用聚己内酯(PCL)作为基础材料，通过调整电纺参数(电压、流速、收集距离等)制备不同形貌的纤维支架，并测试其机械性能和细胞相容性。</p>
+            
+            <h3>初步发现</h3>
+            <ul>
+                <li>纤维取向影响支架的机械强度</li>
+                <li>孔隙率影响细胞浸润和营养扩散</li>
+                <li>表面改性可改善细胞粘附</li>
+            </ul>
+            
+            <h3>未来方向</h3>
+            <p>计划将电纺支架与生物打印技术结合，开发具有血管网络的心脏瓣膜替代物。</p>
+        </section>
+        
+        <section id="interactive">
+            <h2>互动学习</h2>
+            <h3>电纺过程模拟</h3>
+            <p>调整以下参数观察电纺纤维形貌变化：</p>
+            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>电压</strong>: 10kV <input type="range" min="5" max="20" value="10"> 20kV</p>
+                <p><strong>流速</strong>: 0.5ml/h <input type="range" min="0.1" max="2" step="0.1" value="0.5"> 2ml/h</p>
+                <p><strong>收集距离</strong>: 10cm <input type="range" min="5" max="20" value="10"> 20cm</p>
+                <button style="padding: 0.5rem 1rem; background: var(--secondary); color: white; border: none; border-radius: 4px; margin-top: 1rem;">开始模拟</button>
+            </div>
+            
+            <h3>知识问答</h3>
+            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>问题1:</strong> 电纺纤维最突出的特点是什么？</p>
+                <input type="radio" name="q1" id="q1a"> <label for="q1a">高导电性</label><br>
+                <input type="radio" name="q1" id="q1b"> <label for="q1b">高比表面积</label><br>
+                <input type="radio" name="q1" id="q1c"> <label for="q1c">高透明度</label><br>
+                <button style="padding: 0.5rem 1rem; background: var(--secondary); color: white; border: none; border-radius: 4px; margin-top: 1rem;">提交答案</button>
+            </div>
+        </section>
+        
+        <section id="resources">
+            <h2>资源中心</h2>
+            <h3>推荐阅读</h3>
+            <ul>
+                <li><a href="#" style="color: var(--secondary);">《电纺纳米纤维在组织工程中的应用进展》</a></li>
+                <li><a href="#" style="color: var(--secondary);">《3D生物打印:从组织到器官》</a></li>
+                <li><a href="#" style="color: var(--secondary);">《再生医学中的干细胞技术》</a></li>
+            </ul>
+            
+            <h3>相关研究机构</h3>
+            <ul>
+                <li>Wake Forest再生医学研究所</li>
+                <li>麻省理工学院生物工程系</li>
+                <li>中国科学院纳米科学中心</li>
+            </ul>
+            
+            <h3>职业发展</h3>
+            <p>对这个领域感兴趣？考虑以下职业路径：</p>
+            <ul>
+                <li>组织工程师</li>
+                <li>生物材料科学家</li>
+                <li>再生医学研究员</li>
+                <li>生物打印技术专家</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2023 BioFab Explorer | 探索再生医学的未来</p>
+        <p>教育用途 | 非商业项目</p>
+    </footer>
+</body>
+</html>
